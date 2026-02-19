@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact | SMART by Mairena Consulting</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function(){
+emailjs.init("YOUR_PUBLIC_KEY");
+})();
+</script>
+</head>
+
+<body>
+
+<nav>
+    <div class="container nav-container">
+        <div class="brand">SMART</div>
+        <ul>
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="about.html">Nosotros</a></li>
+            <li><a href="services.html">Servicios</a></li>
+            <li><a href="projects.html">Experiencia</a></li>
+            <li><a href="contact.html">Contacto</a></li>
+        </ul>
+    </div>
+</nav>
+
+<section class="page-header">
+    <div class="container">
+        <h1>Contact Us</h1>
+        <p>For consulting inquiries and strategic partnerships.</p>
+    </div>
+</section>
+
+<section class="contact-form">
+    <div class="container">
+
+        <form id="contact-form">
+            <input type="text" name="from_name" placeholder="Full Name" required>
+            <input type="email" name="from_email" placeholder="Email Address" required>
+            <textarea name="message" placeholder="Project Description" required></textarea>
+            <button type="submit" class="btn-primary">Send Message</button>
+        </form>
+
+    </div>
+</section>
+
+<script>
+document.getElementById('contact-form')
+.addEventListener('submit', function(event) {
+event.preventDefault();
+
+emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+.then(function() {
+alert('Message Sent Successfully');
+}, function(error) {
+alert('Error sending message');
+});
+});
+</script>
+
+<footer>
+    <p>© 2026 SMART by Mairena Consulting</p>
+</footer>
+
+</body>
+</html>
